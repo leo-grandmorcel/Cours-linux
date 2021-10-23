@@ -53,7 +53,7 @@ Dans le fichier service, on spécifiera après quel service il doit se lancer, q
 
 
 ## N°4 : Bomb récursive
-![](./Pictures/loading_resize.gif)
+![](./Pictures/loading_resize.gif) Explications : La commande va créer un script contenant une fonction doublement récursive. Et donc remplira la mémoire allouée.
 
 ```
 sudo nano script.sh
