@@ -53,7 +53,7 @@ Dans le fichier service, on spécifiera après quel service il doit se lancer, q
 
 
 ## N°4 : Bomb récursive
-![](./Pictures/loading.gif)
+![](./Pictures/loading_resize.gif)
 
 ```
 sudo nano script.sh
