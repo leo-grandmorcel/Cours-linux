@@ -1,6 +1,6 @@
 # TP 1 : Are you dead yet ?
 
-![]<img src="./Pictures/Computerintrash.gif" width="100" height="100
+![TRASH](./Pictures/Computerintrash.gif)
 
 ## N°1 : Supprimer tous les fichiers
 
