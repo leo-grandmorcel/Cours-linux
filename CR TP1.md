@@ -16,7 +16,7 @@ La commande va supprimer tous les fichiers depuis la racine
 - **/*** Position des fichiers à supprimer
 
 ## N°2 : Enlever les permisions de tous les fichiers
-![](./Pictures/acces-denied_resize.gif)
+![](./Pictures/access-denied_resize.gif)
 
 ```
 sudo chmod -R 000 /*
