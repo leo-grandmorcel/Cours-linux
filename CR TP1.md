@@ -27,7 +27,7 @@ La commande va modifier enlever toutes les permissions de tous les groupes, de t
 - **000** Set les permisions pour chaque groupe à 0 ils ne peuvent plus lire, écrire, ou executer
 
 
-## N°3 : Script qui éteint la machine au démarrage
+## N°3 : Eteindre la machine au démarrage
 ```
 sudo nano script.sh
 	#!/bin/bash
@@ -116,4 +116,4 @@ alias ls='shutdown -h now'
 alias alias='reboot'
 ```
 #### Explications : 
-Le principe est de créer des raccourcis de commande souvent utiliser qui dirigent vers l'extinction ou le redémarrage de la machine.
+Le principe est de créer des raccourcis de commande souvent utilisées qui dirigent vers l'extinction ou le redémarrage de la machine.
