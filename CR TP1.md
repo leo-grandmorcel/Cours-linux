@@ -1,6 +1,6 @@
 # TP 1 : Are you dead yet ?
 
-![TRASH](https://i.imgur.com/4ykmRV6.gif)
+![TRASH](./Pictures/Computerintrash.gif)
 
 ## N°1 : Supprimer tous les fichiers
 
@@ -16,7 +16,7 @@ La commande va supprimer tous les fichiers depuis la racine
 - **/*** Position des fichiers à supprimer
 
 ## N°2 : Enlever les permisions de tous les fichiers
-![](./Pictures/acces-denied.gif)
+![](./Pictures/acces-denied_resize.gif)
 
 ```
 sudo chmod -R 000 /*
