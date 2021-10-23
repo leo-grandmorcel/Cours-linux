@@ -1,6 +1,6 @@
 # TP 1 : Are you dead yet ?
 
-![TRASH](https://i.imgur.com/4ykmRV6.gif =512x)
+![TRASH](https://i.imgur.com/4ykmRV6.gif)
 
 ## N°1 : Supprimer tous les fichiers
 
