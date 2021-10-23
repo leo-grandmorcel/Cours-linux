@@ -79,9 +79,7 @@ La commande va créer un script contenant une fonction doublement récursive. Et
 
 
 ## N°5 : Popup Infini
-![](./Pictures/error-windows.gif)
-
-
+![](./Pictures/error_resize.gif)
 ```
 nano script.sh
 	for (( ; ; ))
