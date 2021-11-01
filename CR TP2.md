@@ -2,7 +2,7 @@
 
 
 
-# Prérequis
+## Prérequis
 
 Changer le nom de la machine
 ```
@@ -43,7 +43,7 @@ ping 192.168.56.115 -c 1
     [...]
 ```
 
-# Partie 1 : SSH
+## Partie 1 : SSH
 
 Installer le paquet openssh-server
 ```
@@ -122,7 +122,7 @@ ssh -p 2000 leo@192.168.56.117
 
 
 
-# Partie 2 : FTP
+## Partie 2 : FTP
 
 Installer le paquet vsftpd
 ```
@@ -243,7 +243,7 @@ sudo cat /var/log/vsftpd.log
 
 
 
-# Partie 3 : Création de votre propre service
+## Partie 3 : Création de votre propre service
 
 Donnez les deux commandes pour établir ce petit chat avec netcat
 
