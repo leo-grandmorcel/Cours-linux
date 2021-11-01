@@ -1,5 +1,9 @@
 # TP2 : Manipulation de services
 
+-[Prérequis](#prérequis)
+-[Partie 1 : SSH](#partie-1--ssh)
+-[Partie 2 : FTP](#partie-2--ftp)
+-[Partie 3 : Création de votre propre service](#partie-3--création-de-votre-propre-service)
 
 
 ## Prérequis
@@ -318,3 +322,5 @@ journalctl -xe -u chat_tp2 -f
     [...]
     nov. 01 18:40:43 node1.tp2.linux nc[17420]: Bonjour
 ```
+
+![](Pictures/you_made_it.gif)
