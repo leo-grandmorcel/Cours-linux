@@ -1,12 +1,12 @@
 # TP2 : Manipulation de services
 
--[Prérequis](#prérequis)
+-[ Prérequis](#prérequis)
 
--[Partie 1 : SSH](#partie-1--ssh)
+-[ Partie 1 : SSH](#partie-1--ssh)
 
--[Partie 2 : FTP](#partie-2--ftp)
+-[ Partie 2 : FTP](#partie-2--ftp)
 
--[Partie 3 : Création de votre propre service](#partie-3--création-de-votre-propre-service)
+-[ Partie 3 : Création de votre propre service](#partie-3--création-de-votre-propre-service)
 
 
 ## Prérequis
