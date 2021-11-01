@@ -17,10 +17,10 @@ reboot
 Ping la VM
 ```
 ping 1.1.1.1 -c 1
-[...]
---- 1.1.1.1 ping statistics ---
-1 packets transmitted, 1 received, 0% packet loss, time 0ms
-[...]
+    [...]
+    --- 1.1.1.1 ping statistics ---
+    1 packets transmitted, 1 received, 0% packet loss, time 0ms
+    [...]
 ``` 
 
 
@@ -61,15 +61,7 @@ systemctl status ssh
     ● ssh.service - OpenBSD Secure Shell server
         Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
         Active: active (running) since Mon 2021-10-25 10:46:12 CEST; 34min ago
-        Docs: man:sshd(8)
-                man:sshd_config(5)
-        Process: 517 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
-    Main PID: 551 (sshd)
-        Tasks: 1 (limit: 2312)
-        Memory: 4.1M
-        CGroup: /system.slice/ssh.service
-                └─551 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
-    
+    [...]
 ```
 
 Analyser le service en cours de fonctionnement
@@ -82,11 +74,11 @@ ps -e | grep sshd
 
 sudo ss -ltpn
     State    Recv-Q   Send-Q      Local Address:Port       Peer Address:Port   Process
-    LISTEN   0        4096        127.0.0.53%lo:53              0.0.0.0:*       users:(("systemd-resolve",pid=403,fd=13))
+    [...]
     LISTEN   0        128               0.0.0.0:22              0.0.0.0:*       users:(("sshd",pid=551,fd=3))
     LISTEN   0        5               127.0.0.1:631             0.0.0.0:*       users:(("cupsd",pid=439,fd=7))
     LISTEN   0        128                  [::]:22                 [::]:*       users:(("sshd",pid=551,fd=4))
-    LISTEN   0        5                   [::1]:631                [::]:*       users:(("cupsd",pid=439,fd=6))
+    [...]
 
 journalctl | grep sshd
     [...]
@@ -149,11 +141,6 @@ sudo systemctl status vsftpd
     ● vsftpd.service - vsftpd FTP server
         Loaded: loaded (/lib/systemd/system/vsftpd.service; enabled; vendor preset: enabled)
         Active: active (running) since Mon 2021-11-01 16:57:39 CET; 2min 23s ago
-    Main PID: 1797 (vsftpd)
-        Tasks: 1 (limit: 2312)
-        Memory: 528.0K
-        CGroup: /system.slice/vsftpd.service
-                └─1797 /usr/sbin/vsftpd /etc/vsftpd.conf
     [...]
 ```
 
@@ -194,6 +181,7 @@ sudo cat /etc/vsftpd.conf
 
 sudo systemctl restart vsftpd.service
 ```
+> Depuis FileZilla.
 ```
 Statut :	Connexion à 192.168.56.117:21...
 Statut :	Connexion établie, attente du message d'accueil...
@@ -215,7 +203,6 @@ sudo cat /var/log/vsftpd.log
 Modifier le comportement du service
 ```
 sudo nano /etc/vsftpd.conf
-
 sudo cat /etc/vsftpd.conf
     [...]
     listen_port=2001
@@ -224,26 +211,27 @@ sudo cat /etc/vsftpd.conf
     [...]
 
 sudo systemctl restart vsftpd.service
-
 sudo ss -ltpn
     State                   Recv-Q                  Send-Q                                   Local Address:Port                                   Peer Address:Port                  Process
-    LISTEN                  0                       128                                            0.0.0.0:2000                                        0.0.0.0:*                      users:(("sshd",pid=1495,fd=3))
-    LISTEN                  0                       4096                                     127.0.0.53%lo:53                                          0.0.0.0:*                      users:(("systemd-resolve",pid=409,fd=13))
-    LISTEN                  0                       5                                            127.0.0.1:631                                         0.0.0.0:*                      users:(("cupsd",pid=444,fd=7))
-    LISTEN                  0                       128                                               [::]:2000                                           [::]:*                      users:(("sshd",pid=1495,fd=4))
+    [...]
     LISTEN                  0                       32                                                   *:2001                                              *:*                      users:(("vsftpd",pid=16933,fd=3))
-    LISTEN                  0                       5                                                [::1]:631                                            [::]:*                      users:(("cupsd",pid=444,fd=6))
+    [...]
 ```
 
 
 Connectez vous sur le nouveau port choisi
+> Depuis FileZilla.
 ```
 Statut :	Connexion à 192.168.56.117:2001...
-Statut :	Connexion établie, attente du message d'accueil...
-Statut :	Serveur non sécurisé, celui-ci ne supporte pas FTP sur TLS.
-Statut :	Le serveur ne supporte pas les caractères non-ASCII.
+[...]
 Statut :	Connecté
+Statut :	Démarrage de l'envoi de C:\Users\lgran\Desktop\Cours\Cours-linux\CR TP1.md
+Statut :	Transfert de fichier réussi, 3,322 octets transférés en 1 seconde
+Statut :	Démarrage du téléchargement de /home/leo/Desktop/CR TP1.md
+Statut :	Transfert de fichier réussi, 3,322 octets transférés en 1 seconde
 ```
+
+> Depuis la VM
 ```
 sudo cat /var/log/vsftpd.log
     [...]
@@ -258,19 +246,24 @@ sudo cat /var/log/vsftpd.log
 # Partie 3 : Création de votre propre service
 
 Donnez les deux commandes pour établir ce petit chat avec netcat
+
+> Depuis la VM
 ```
 nc -l 2020
+
 ```
+
+> Depuis le PC
 ```
 C:\Users\lgran\Desktop\Cours\Cours-linux\netcat> .\nc.exe
 Cmd line: 192.168.56.117 2020
+
 ```
 
 
 Utiliser netcat pour stocker les données échangées dans un fichier
 ```
 nano Desktop/chat.txt
-
 nc -l 2020 > ./Desktop/chat.txt
     Comment tu vas ?
 
@@ -281,7 +274,6 @@ cat Desktop/chat.txt
 Créer un nouveau service
 ```
 sudo nano /etc/systemd/system/chat_tp2.service
-
 sudo cat /etc/systemd/chat_tp2.service
     [Unit]
     Description=Little chat service (TP2)
@@ -293,7 +285,6 @@ sudo cat /etc/systemd/chat_tp2.service
     WantedBy=multi-user.target
 
 sudo chmod 777 /etc/systemd/system/chat_tp2.service
-
 sudo systemctl daemon-reload
 ```
 
@@ -301,7 +292,6 @@ sudo systemctl daemon-reload
 Tester le nouveau service
 ```
 sudo systemctl start chat_tp2.service
-
 systemctl status chat_tp2.service
     ● chat_tp2.service - Little chat service (TP2)
         Loaded: loaded (/etc/systemd/system/chat_tp2.service; disabled; vendor preset: enabled)
@@ -315,12 +305,14 @@ sudo ss -ltpn
     [...]
 ```
 
+> Depuis le PC
 ```
 C:\Users\lgran\Desktop\Cours\Cours-linux\netcat> .\nc.exe
 Cmd line: 192.168.56.117 2020
 Hello World !
 ```
 
+> Depuis la VM
 ```
 journalctl -xe -u chat_tp2 -f
     [...]
