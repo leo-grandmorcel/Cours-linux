@@ -4,7 +4,7 @@
 
 # Prérequis
 
-#### Changer le nom de la machine
+Changer le nom de la machine
 ```
 sudo hostname node1.tp2.linux
 sudo nano /etc/hostname 
@@ -14,7 +14,7 @@ reboot
 ```
 
 
-#### Ping la VM
+Ping la VM
 ```
 ping 1.1.1.1 -c 1
 [...]
@@ -24,7 +24,7 @@ ping 1.1.1.1 -c 1
 ``` 
 
 
-#### Ping ynov.com
+Ping ynov.com
 ```
 ping ynov.com -c 3
     [...]
@@ -34,7 +34,7 @@ ping ynov.com -c 3
 ```
 
 
-#### Ping la VM depuis le PC
+Ping la VM depuis le PC
 ```
 ping 192.168.56.115 -c 1
     [...]
@@ -43,9 +43,9 @@ ping 192.168.56.115 -c 1
     [...]
 ```
 
-# Partie 1
+# Partie 1 : SSH
 
-#### Installer le paquet openssh-server
+Installer le paquet openssh-server
 ```
 sudo apt install openssh-server
     [...]
@@ -54,7 +54,7 @@ sudo apt install openssh-server
 ```
 
 
-#### Lancer le service sshd
+Lancer le service sshd
 ```
 systemctl start ssh
 systemctl status ssh
@@ -72,7 +72,7 @@ systemctl status ssh
     
 ```
 
-#### Analyser le service en cours de fonctionnement
+Analyser le service en cours de fonctionnement
 ```
 ps -e | grep sshd
      562 ?        00:00:00 sshd
@@ -96,7 +96,7 @@ journalctl | grep sshd
 ```
 
 
-#### Connectez vous au serveur
+Connectez vous au serveur
 ```
 ssh leo@192.168.56.117
     leo@192.168.56.117's password:
@@ -105,7 +105,7 @@ ssh leo@192.168.56.117
 ```
 
 
-#### Modifier le comportement du service
+Modifier le comportement du service
 ```
 sudo nano /etc/ssh/sshd_config
 cat /etc/ssh/sshd_config
@@ -119,7 +119,7 @@ sudo ss -ltpn | grep sshd
 ```
 
 
-#### Connectez vous sur le nouveau port choisi
+Connectez vous sur le nouveau port choisi
 ```
 ssh -p 2000 leo@192.168.56.117
     leo@192.168.56.117's password:
@@ -132,7 +132,7 @@ ssh -p 2000 leo@192.168.56.117
 
 # Partie 2 : FTP
 
-#### Installer le paquet vsftpd
+Installer le paquet vsftpd
 ```
 sudo apt install vsftpd
     [...]
@@ -142,7 +142,7 @@ sudo apt install vsftpd
 ```
 
 
-#### Lancer le service vsftpd
+Lancer le service vsftpd
 ```
 sudo systemctl start vsftpd
 sudo systemctl status vsftpd
@@ -158,7 +158,7 @@ sudo systemctl status vsftpd
 ```
 
 
-#### Analyser le service en cours de fonctionnement
+Analyser le service en cours de fonctionnement
 ```
 systemctl status vsftpd
     ● vsftpd.service - vsftpd FTP server
@@ -178,7 +178,7 @@ journalctl | grep vsftpd
 ```
 
 
-#### Connectez vous au serveur
+Connectez vous au serveur
 ```
 sudo nano /etc/vsftpd.conf
 sudo cat /etc/vsftpd.conf
@@ -202,7 +202,7 @@ Statut :	Le serveur ne supporte pas les caractères non-ASCII.
 Statut :	Connecté
 ```
 
-#### Visualiser les logs
+Visualiser les logs
 ```
 sudo cat /var/log/vsftpd.log
     [...]
@@ -212,7 +212,7 @@ sudo cat /var/log/vsftpd.log
 ```
 
 
-#### Modifier le comportement du service
+Modifier le comportement du service
 ```
 sudo nano /etc/vsftpd.conf
 
@@ -236,7 +236,7 @@ sudo ss -ltpn
 ```
 
 
-#### Connectez vous sur le nouveau port choisi
+Connectez vous sur le nouveau port choisi
 ```
 Statut :	Connexion à 192.168.56.117:2001...
 Statut :	Connexion établie, attente du message d'accueil...
@@ -257,7 +257,7 @@ sudo cat /var/log/vsftpd.log
 
 # Partie 3 : Création de votre propre service
 
-#### Donnez les deux commandes pour établir ce petit chat avec netcat
+Donnez les deux commandes pour établir ce petit chat avec netcat
 ```
 nc -l 2020
 ```
@@ -267,7 +267,7 @@ Cmd line: 192.168.56.117 2020
 ```
 
 
-#### Utiliser netcat pour stocker les données échangées dans un fichier
+Utiliser netcat pour stocker les données échangées dans un fichier
 ```
 nano Desktop/chat.txt
 
@@ -278,7 +278,7 @@ cat Desktop/chat.txt
     Bien
 ```
 
-#### Créer un nouveau service
+Créer un nouveau service
 ```
 sudo nano /etc/systemd/system/chat_tp2.service
 
@@ -298,7 +298,7 @@ sudo systemctl daemon-reload
 ```
 
 
-#### Tester le nouveau service
+Tester le nouveau service
 ```
 sudo systemctl start chat_tp2.service
 
