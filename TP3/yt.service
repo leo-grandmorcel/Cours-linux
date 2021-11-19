@@ -1,0 +1,9 @@
+[Unit]
+Description="Processus pour dl des vidéos"
+
+[Service]
+ExecStart=/usr/bin/bash /srv/yt/yt-v2.sh
+
+[Install]
+WantedBy=multi-user.target
+
