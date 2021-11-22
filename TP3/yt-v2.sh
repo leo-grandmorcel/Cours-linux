@@ -19,6 +19,7 @@ while true; do
             else 
                 echo "[$(date "+%D %T")]"" Wrong URL : $line""'" >> "/var/log/yt/download.log"
                 echo "wrong URL"
+                sed -i '1d' /srv/yt/url
             fi
         done
     fi
