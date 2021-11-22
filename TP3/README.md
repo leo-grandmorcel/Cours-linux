@@ -37,6 +37,7 @@ sudo bash /srv/idcard/idcard.sh
 
 ## Script youtube-dl
 📁 **Le script[`/srv/yt/yt.sh`](yt.sh)**
+
 📁 **Le fichier de log[`/var/log/yt/download.log`](download.log)**
 ```
 sudo bash /srv/yt/yt.sh https://www.youtube.com/watch?v=sNx57atloH8
@@ -46,6 +47,7 @@ sudo bash /srv/yt/yt.sh https://www.youtube.com/watch?v=sNx57atloH8
 
 ## MAKE IT A SERVICE
 📁 **Le script[`/srv/yt/yt-v2.sh`](yt-v2.sh)**
+
 📁 **Fichier[`/etc/systemd/system/yt.service`](yt.service)**
 ```
 systemctl status yt.service
@@ -74,8 +76,12 @@ journalctl -xe -u yt
 
 ## Bonus
 [![asciicast](https://asciinema.org/a/PdGhqOL66w6jZuVqTZ6hHJ3Uw.svg)](https://asciinema.org/a/PdGhqOL66w6jZuVqTZ6hHJ3Uw)
-➜Les scripts sont en accords avec les règles ShellCheck
-➜Ajout fonction Usage
-➜Gestions d'options 
-➜Vérification des commandes présentes
-➜Vérification du lien à l'aide d'une expression régulière
+ ➜Les scripts sont en accords avec les règles ShellCheck
+
+ ➜Ajout fonction Usage
+ 
+ ➜Gestions d'options 
+ 
+ ➜Vérification des commandes présentes
+ 
+ ➜Vérification du lien à l'aide d'une expression régulière
