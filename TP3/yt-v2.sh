@@ -2,7 +2,7 @@
 while true; do
     if [[ -d "/srv/yt/downloads" && -d "/var/log/yt/" && -s "/srv/yt/url" ]]; then 
         while read -r line < /srv/yt/url; do
-            if [[ $line =~ https://www.youtube.com/ ]]; then
+            if [[ "$line" =~ https://www.youtube.com/ ]]; then
                 if youtube-dl -e "$line" &> /dev/null; then
                     title=$(youtube-dl -e "$line") 
                     mkdir "/srv/yt/downloads/$title"
