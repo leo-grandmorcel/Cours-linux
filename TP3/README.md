@@ -10,7 +10,7 @@
 
 
 ## Script carte d'identité
-📁 **Fichier[`idcard.sh`]**
+📁 **Fichier[`idcard.sh`](idcard.sh)**
 ```
 sudo bash /srv/idcard/idcard.sh
     Machine name : node1.tp2.linux

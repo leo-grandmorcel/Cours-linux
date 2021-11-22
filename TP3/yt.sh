@@ -30,7 +30,7 @@ if [[ -d "/srv/yt/downloads" && -d "/var/log/yt/" ]]; then
                 fi
                 lien="$i"
         done
-        if [[ $lien =~ https://www.youtube.com/ ]]; then
+        if [[ "$lien" =~ https://www.youtube.com/ ]]; then
                 if youtube-dl -e "$lien" &> /dev/null; then
                         title=$(youtube-dl -e "$lien")
                         mkdir "$path/$title" &> /dev/null
