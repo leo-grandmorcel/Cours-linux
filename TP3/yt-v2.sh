@@ -1,3 +1,4 @@
+#!/bin/bash
 while true; do
     if [[ -d "/srv/yt/downloads" && -d "/var/log/yt/" && -s "/srv/yt/url" ]]; then 
         cat /srv/yt/url | while read line; do
