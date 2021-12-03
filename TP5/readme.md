@@ -282,11 +282,9 @@ IncludeOptional conf.d/*.conf
 🌞 **Ranger la chambre**
 ```
 [leo@db ~]$ unzip nextcloud-21.0.1.zip
-[leo@db ~]$ sudo mv nextcloud/* /var/www/nextcloud/html/
-[leo@db ~]$ sudo mv nextcloud/.* /var/www/nextcloud/html/
-[leo@db ~]$ sudo chown apache /var/www/nextcloud/html/*
-[leo@db ~]$ sudo chown apache /var/www/nextcloud/html/.*
-[leo@web ~]$ sudo rm -r nextcloud-21.0.1.zip | sudo rm -r nextcloud
+[leo@db ~]$ sudo mv nextcloud/. /var/www/nextcloud/html/
+[leo@db ~]$ sudo chown apache /var/www/nextcloud/html/.
+[leo@db ~]$ sudo rm -r nextcloud-21.0.1.zip | sudo rm -r nextcloud
 ```
 ## 4. Test
 
@@ -300,7 +298,7 @@ $ cat hosts | tail -n 2
 
 🌞 **Tester l'accès à NextCloud et finaliser son install'**
 ```
-lgran@LeoZenbook MINGW64 ~ $ curl http://web.tp5.linux
+PS C:\Users\lgran> curl http://web.tp5.linux
 StatusCode        : 200
 StatusDescription : OK
 Content           : <!DOCTYPE html>
