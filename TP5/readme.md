@@ -236,8 +236,8 @@ IncludeOptional conf.d/*.conf
 
 🌞 **Créer un VirtualHost qui accueillera NextCloud**
 ```
-[leo@db ~]$ sudo nano /etc/httpd/conf.d/nextcloud.conf
-[leo@db ~]$ cat /etc/httpd/nextcloud.conf
+[leo@web ~]$ sudo nano /etc/httpd/conf.d/nextcloud.conf
+[leo@web ~]$ cat /etc/httpd/nextcloud.conf
 <VirtualHost *:80>
   DocumentRoot /var/www/nextcloud/html/  # on précise ici le dossier qui contiendra le site : la racine Web
   ServerName  web.tp5.linux  # ici le nom qui sera utilisé pour accéder à l'application
@@ -260,17 +260,17 @@ IncludeOptional conf.d/*.conf
 ```
 [leo@web ~]$ sudo mkdir /var/www/nextcloud/
 [leo@web ~]$ sudo mkdir /var/www/nextcloud/html
-[leo@db ~]$ sudo sudo chown apache /var/www/nextcloud/*
+[leo@web ~]$ sudo sudo chown apache /var/www/nextcloud/*
 ```
 
 🌞 **Configurer PHP**
 ```
 [leo@web ~]$ timedatectl | grep "Time zone"
                 Time zone: Europe/Paris (CET, +0100)
-[leo@db ~]$ sudo nano /etc/opt/remi/php74/php.ini
-[leo@db ~]$ cat /etc/opt/remi/php74/php.ini | grep "date.timezone ="
+[leo@web ~]$ sudo nano /etc/opt/remi/php74/php.ini
+[leo@web ~]$ cat /etc/opt/remi/php74/php.ini | grep "date.timezone ="
 ;date.timezone = "Europe/Paris (CET, +0100)"
-[leo@db ~]$ sudo systemctl restart httpd.service
+[leo@web ~]$ sudo systemctl restart httpd.service
 ```
 
 ## 3. Install NextCloud
@@ -281,10 +281,10 @@ IncludeOptional conf.d/*.conf
 ``` 
 🌞 **Ranger la chambre**
 ```
-[leo@db ~]$ unzip nextcloud-21.0.1.zip
-[leo@db ~]$ sudo mv nextcloud/. /var/www/nextcloud/html/
-[leo@db ~]$ sudo chown apache /var/www/nextcloud/html/.
-[leo@db ~]$ sudo rm -r nextcloud-21.0.1.zip | sudo rm -r nextcloud
+[leo@web ~]$ unzip nextcloud-21.0.1.zip
+[leo@web ~]$ sudo mv nextcloud/. /var/www/nextcloud/html/
+[leo@web ~]$ sudo chown apache /var/www/nextcloud/html/.
+[leo@web ~]$ sudo rm -r nextcloud-21.0.1.zip | sudo rm -r nextcloud
 ```
 ## 4. Test
 
