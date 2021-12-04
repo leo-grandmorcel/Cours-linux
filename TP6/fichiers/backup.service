@@ -1,0 +1,10 @@
+[Unit]
+Description=Save file /var/www/nextcloud into /srv/backup/
+
+[Service]
+ExecStart=/usr/bin/bash /srv/backup.sh
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
+

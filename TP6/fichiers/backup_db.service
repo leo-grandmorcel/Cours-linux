@@ -1,0 +1,9 @@
+[Unit]
+Description=Save the database nextcloud and archive it into /srv/backup/
+
+[Service]
+ExecStart=/usr/bin/bash /srv/backup_db.sh
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

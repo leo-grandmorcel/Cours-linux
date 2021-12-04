@@ -1,0 +1,11 @@
+[Unit]
+Description=Lance backup.service à intervalles réguliers
+Requires=backup.service
+
+[Timer]
+Unit=backup.service
+OnCalendar=hourly
+
+[Install]
+WantedBy=timers.target
+
